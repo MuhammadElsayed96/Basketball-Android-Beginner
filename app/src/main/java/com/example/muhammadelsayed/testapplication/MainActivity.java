@@ -19,14 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //set the custom theme I've made, which is located in the res/values/styles.xml file
         setTheme(R.style.AppTheme);
+        // call the super class onCreate to complete the creation of activity like
+        // the view hierarchy
         super.onCreate(savedInstanceState);
 
+        // recovering the instance state
         if (savedInstanceState != null) {
             teamH_totalScore = savedInstanceState.getInt("teamH");
             teamG_totalScore = savedInstanceState.getInt("teamG");
         }
 
+        // set the user interface layout for this Activity
+        // the layout file is defined in the project res/layout/main_activity.xml file
         setContentView(R.layout.activity_main);
 
 
@@ -106,18 +112,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // This callback is called only when there is a saved instance previously saved using
+    // onSaveInstanceState(). We restore some state in onCreate() while we can optionally restore
+    // other state here, possibly usable after onStart() has completed.
+    // The savedInstanceState Bundle is same as the one used in onCreate().
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         teamH_scoreLabel.setText(savedInstanceState.getCharSequence("teamH_textView"));
         teamG_scoreLabel.setText(savedInstanceState.getCharSequence("teamG_textView"));
     }
 
+    // invoked when the activity may be temporarily destroyed, save the instance state here
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("teamH", teamH_totalScore);
         outState.putInt("teamG", teamG_totalScore);
         outState.putCharSequence("teamH_textView", teamH_scoreLabel.getText());
         outState.putCharSequence("teamG_textView", teamG_scoreLabel.getText());
+
+        // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState);
     }
 }

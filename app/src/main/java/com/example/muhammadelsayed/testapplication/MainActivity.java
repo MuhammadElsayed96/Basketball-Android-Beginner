@@ -16,11 +16,19 @@ public class MainActivity extends AppCompatActivity {
     Button teamG_addThree, teamG_addTwo, teamG_freeThrow;
     Button resetEverything_btn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            teamH_totalScore = savedInstanceState.getInt("teamH");
+            teamG_totalScore = savedInstanceState.getInt("teamG");
+        }
+
         setContentView(R.layout.activity_main);
+
 
         //HOST TEAM
         teamH_scoreLabel = (TextView) findViewById(R.id.teamH_score_label);
@@ -28,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         teamH_addTwo = (Button) findViewById(R.id.teamH_addTwo_btn);
         teamH_freeThrow = (Button) findViewById(R.id.teamH_FreeThrow_btn);
         resetEverything_btn = (Button) findViewById(R.id.resetAll_btn);
+
 
         teamH_addThree.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,5 +104,20 @@ public class MainActivity extends AppCompatActivity {
                 teamG_scoreLabel.setText(String.valueOf(teamG_totalScore));
             }
         });
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        teamH_scoreLabel.setText(savedInstanceState.getCharSequence("teamH_textView"));
+        teamG_scoreLabel.setText(savedInstanceState.getCharSequence("teamG_textView"));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("teamH", teamH_totalScore);
+        outState.putInt("teamG", teamG_totalScore);
+        outState.putCharSequence("teamH_textView", teamH_scoreLabel.getText());
+        outState.putCharSequence("teamG_textView", teamG_scoreLabel.getText());
+        super.onSaveInstanceState(outState);
     }
 }

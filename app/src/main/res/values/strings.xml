@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TestApplication</string>
+    <string name="team_a">Host Team</string>
+    <string name="team_b">Guest Team</string>
+    <string name="addThree_Button">+3 POINTS</string>
+    <string name="addTwo_Button">+2 POINTS</string>
+    <string name="freeThrow_Button">FREE THROUGH</string>
+    <string name="teamA_Points">0</string>
+    <string name="teamB_Points">0</string>
+    <string name="rest_btn">RESET</string>
+</resources>

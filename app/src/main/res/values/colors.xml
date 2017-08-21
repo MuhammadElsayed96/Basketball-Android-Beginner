@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--color name="colorPrimary">#FFA726</color-->
+    <!-- Primary theme color of the app (sets background color of app bar) -->
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#FFA726</color>
+    <color name="colorAccent">#FFA726</color>
+    <!-- Background color of buttons in the app -->
+    <color name="colorButtonNormal">#FF9800</color>
+
+</resources>

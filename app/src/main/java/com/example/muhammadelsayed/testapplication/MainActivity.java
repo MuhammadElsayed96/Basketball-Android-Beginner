@@ -17,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
     Button resetEverything_btn;
 
 
+
+    /*
+    *   ==============================================
+    *   == Mohammed Abdulhady Mohammed Deifallah #1 ==
+    *   ==============================================
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set the custom theme I've made, which is located in the res/values/styles.xml file
